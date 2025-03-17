@@ -7,10 +7,11 @@ from torchvision import datasets, transforms
 import os
 
 # Handle paths differently for Colab
-if "google.colab" in str(get_ipython()):
-    BASE_DIR = "/content"
-else:
-    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+# Define BASE_DIR safely (compatible with both local and Colab)
+try:
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))  # Works in local scripts
+except NameError:
+    BASE_DIR = "/content"  # Default to Colab path if __file__ is not available
 
 DATA_DIR = os.path.join(BASE_DIR, "data")
 REPORTS_DIR = os.path.join(BASE_DIR, "reports")
