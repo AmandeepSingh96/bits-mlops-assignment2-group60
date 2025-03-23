@@ -1,0 +1,7 @@
+torchvision
+pandas
+sweetviz
+torch
+xgboost
+optuna
+shap
